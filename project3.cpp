@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// Node class
+
 class Node {
 public:
     int data;
@@ -13,7 +13,7 @@ public:
     }
 };
 
-// Linked List class
+
 class LinkedList {
 private:
     Node* head;
@@ -39,7 +39,6 @@ public:
         temp->next = newNode;
     }
 
-    // Display List
     void display() {
         Node* temp = head;
         while (temp != NULL) {
@@ -49,14 +48,12 @@ public:
         cout << "NULL" << endl;
     }
 
-    // 2. Insert at Beginning
     void insert_at_beginning(int data) {
         Node* newNode = new Node(data);
         newNode->next = head;
         head = newNode;
     }
 
-    // 2. Search Element
     bool search(int key) {
         Node* temp = head;
         while (temp != NULL) {
@@ -68,7 +65,6 @@ public:
         return false;
     }
 
-    // 3. Delete Node by Value
     void delete_node(int key) {
         if (head == NULL) return;
 
@@ -95,7 +91,6 @@ public:
         delete nodeToDelete;
     }
 
-    // 4. Reverse Linked List
     void reverse() {
         Node* prev = NULL;
         Node* curr = head;
@@ -112,11 +107,9 @@ public:
     }
 };
 
-// Main function
 int main() {
     LinkedList list;
 
-    // Append elements
     list.append(10);
     list.append(20);
     list.append(30);
@@ -124,24 +117,20 @@ int main() {
     cout << "Original List: ";
     list.display();
 
-    // Insert at beginning
     list.insert_at_beginning(5);
     cout << "After Insert at Beginning: ";
     list.display();
 
-    // Search
     int key = 20;
     if (list.search(key))
         cout << key << " found in list" << endl;
     else
         cout << key << " not found" << endl;
 
-    // Delete node
     list.delete_node(20);
     cout << "After Deletion: ";
     list.display();
 
-    // Reverse list
     list.reverse();
     cout << "After Reversing: ";
     list.display();
